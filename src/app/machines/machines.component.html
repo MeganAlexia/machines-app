@@ -1,0 +1,13 @@
+<ng-container *ngIf="machines$ | async as machines">
+  <mat-list *ngIf="machines.length; else noMachines">
+    <mat-list-item *ngFor="let machine of machines; trackBy: trackById">
+      <a mat-stroked-button [routerLink]="[machine.id]" [matBadge]="machine.statuses.length" matBadgePosition="after" matBadgeColor="accent">{{ machine.name }}</a>
+
+      <app-machine-status [status]="machine.status"></app-machine-status>
+    </mat-list-item>
+  </mat-list>
+
+  <ng-template #noMachines>
+    There are no machines for now
+  </ng-template>
+</ng-container>

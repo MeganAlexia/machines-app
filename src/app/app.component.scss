@@ -1,0 +1,22 @@
+.content {
+  max-width: 1500px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.total-time {
+  margin-left: 40px;
+
+  app-machine-status {
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+}
+
+.sanbox {
+  right: 16px;
+  position: absolute;
+}

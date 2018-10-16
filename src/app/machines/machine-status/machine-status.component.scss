@@ -1,0 +1,12 @@
+.machine-status {
+  min-width: 30px;
+  display: inline-block;
+
+  &.on {
+    color: green;
+  }
+
+  &.off {
+    color: red;
+  }
+}

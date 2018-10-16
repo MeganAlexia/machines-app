@@ -1,0 +1,28 @@
+<mat-card *ngIf="machine$ | async as machine; else machineNotAvailable">
+  <mat-card-title>
+    {{ machine.name }}
+  </mat-card-title>
+
+  <mat-card-content>
+    <dl>
+      <dt class="title">Status</dt>
+      <dd>
+        <app-machine-status [status]="machine.status"></app-machine-status>
+      </dd>
+
+      <dt class="title">Statuses ({{ machine.statuses.length }})</dt>
+      <dd *ngFor="let status of machine.statuses">
+        <app-machine-status [status]="status.status"></app-machine-status>
+        {{ status.timestamp | date:'mediumTime' }}
+      </dd>
+    </dl>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #machineNotAvailable>
+  <mat-card>
+    <mat-card-content>
+      This machine either don't exist or is not loaded yet
+    </mat-card-content>
+  </mat-card>
+</ng-template>

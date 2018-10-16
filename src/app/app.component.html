@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <button mat-button routerLink="/machines">Machines app</button>
+
+  <ng-container *ngIf="totalOnOffTime$ | async as totalOnOffTime">
+    <span class="total-time on">
+      Total <app-machine-status [status]="MachineStatus.ON"></app-machine-status> time: {{ totalOnOffTime.runningTimeSeconds | number:'1.2-2' }}s
+      ({{ totalOnOffTime.runningTimeSeconds / (totalOnOffTime.idleTimeSeconds + totalOnOffTime.runningTimeSeconds) | percent }})
+    </span>
+
+    <span class="total-time off">
+      Total <app-machine-status [status]="MachineStatus.OFF"></app-machine-status> time {{ totalOnOffTime.idleTimeSeconds | number:'1.2-2' }}s
+      ({{ totalOnOffTime.idleTimeSeconds / (totalOnOffTime.idleTimeSeconds + totalOnOffTime.runningTimeSeconds) | percent }})
+    </span>
+  </ng-container>
+
+  <button mat-button class="sanbox" routerLink="/sandbox">Sandbox</button>
+</mat-toolbar>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

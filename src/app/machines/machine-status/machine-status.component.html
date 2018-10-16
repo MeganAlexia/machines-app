@@ -1,0 +1,7 @@
+<span
+  class="machine-status"
+  [class.on]="status === MachineStatus.ON"
+  [class.off]="status === MachineStatus.OFF"
+>
+  {{ status | uppercase }}
+</span>
