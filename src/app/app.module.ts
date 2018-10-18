@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/modules/shared.module';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { SandboxModule } from './sandbox/sandbox.module';
+import { DurationPipe } from './shared/pipes/duration.pipe';
 
 const config: SocketIoConfig = {
   url: 'http://localhost:3000',
@@ -23,7 +24,7 @@ const config: SocketIoConfig = {
 };
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DurationPipe],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

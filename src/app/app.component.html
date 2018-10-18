@@ -3,12 +3,12 @@
 
   <ng-container *ngIf="totalOnOffTime$ | async as totalOnOffTime">
     <span class="total-time on">
-      Total <app-machine-status [status]="MachineStatus.ON"></app-machine-status> time: {{ totalOnOffTime.runningTimeSeconds | number:'1.2-2' }}s
+      Total <app-machine-status [status]="MachineStatus.ON"></app-machine-status> time: {{ totalOnOffTime.runningTimeSeconds | duration }}
       ({{ totalOnOffTime.runningTimeSeconds / (totalOnOffTime.idleTimeSeconds + totalOnOffTime.runningTimeSeconds) | percent }})
     </span>
 
     <span class="total-time off">
-      Total <app-machine-status [status]="MachineStatus.OFF"></app-machine-status> time {{ totalOnOffTime.idleTimeSeconds | number:'1.2-2' }}s
+      Total <app-machine-status [status]="MachineStatus.OFF"></app-machine-status> time {{ totalOnOffTime.idleTimeSeconds  | duration }}
       ({{ totalOnOffTime.idleTimeSeconds / (totalOnOffTime.idleTimeSeconds + totalOnOffTime.runningTimeSeconds) | percent }})
     </span>
   </ng-container>
